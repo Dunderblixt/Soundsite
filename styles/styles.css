@@ -5,6 +5,13 @@
   font-size: 2rem;
 }
 
+.moirai-one-logo {
+  font-family: "Moirai One", system-ui !important;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 5rem;
+}
+
 .navbar .navbar-nav {
   width: 100%;
   justify-content: space-evenly;
