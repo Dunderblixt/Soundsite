@@ -72,5 +72,6 @@ const getToken = async code => {
 
   localStorage.setItem('access_token', response.access_token);
 }
+  let accessToken = localStorage.getItem('access_token');
 
      
