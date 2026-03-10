@@ -71,3 +71,10 @@
 }
 
 }
+
+@media (max-width: 430px) {
+  .moirai-one-logo {
+    font-size: 3rem
+
+  }
+}
