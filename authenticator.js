@@ -74,4 +74,26 @@ const getToken = async code => {
 }
   let accessToken = localStorage.getItem('access_token');
 
-     
+
+
+  // The authorization
+     var client_id = '3188e35cbb84426dbef6b5bdee2fbb28';
+var client_secret = 'f0aab415ddbe43c3911854f976aa7353';
+
+var authOptions = {
+  url: 'https://accounts.spotify.com/api/token',
+  headers: {
+    'Authorization': 'Basic ' + (new Buffer.from(client_id + ':' + client_secret).toString('base64'))
+  },
+  form: {
+    grant_type: 'client_credentials'
+  },
+  json: true
+};
+/*
+request.post(authOptions, function(error, response, body) {
+  if (!error && response.statusCode === 200) {
+    var token = accessToken;
+  }
+});
+ */
