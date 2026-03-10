@@ -35,16 +35,32 @@
   max-width: 900px;
 }
 
-.search-bar .form-control {
-  border-radius: 50px 0 0 50px;
-  padding: 0.9rem 1.5rem;
+.hero-login {
+  padding-bottom: 15rem;
+}
+
+.login-panel {
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  padding: 2.5rem;
+  color: #fff;
+  backdrop-filter: blur(6px);
+  width: 100%;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.login-panel .form-control {
+  background-color: rgba(255, 255, 255, 0.96);
   border: none;
 }
 
-.search-bar .form-control:focus {
+.login-panel .form-control:focus {
   box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.35);
   border-color: transparent;
 }
+
 
 .search-bar .btn {
   background-color: #000;

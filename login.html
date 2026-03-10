@@ -40,22 +40,25 @@
   </div>
 </nav>
 <!-- Hero Section -->
-<section class="hero-section d-flex align-items-start align-items-lg-center">
-  <div class="container text-white">
-    <div class="hero-content">
-      <h1 class="fw-bold display-4">Welcome to <span class="moirai-one-logo">Soundsite</span></h1>
-      <p class="fs-3">Millions of songs, albums and artists to discover. Explore now.</p>
-
-      <form class="search-bar mt-4">
-        <div class="input-group input-group-lg">
-          <input
-            type="text"
-            class="form-control"
-            placeholder="Search for an artist, album, song..."
-          >
-          <button class="btn px-4" type="submit">Search</button>
+<section class="hero-section hero-login d-flex align-items-center">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-8 col-lg-5">
+        <div class="login-panel">
+          <h2 class="h4 mb-3">Sign in</h2>
+          <form>
+            <div class="mb-3">
+              <label class="form-label" for="login-email">Email</label>
+              <input class="form-control" id="login-email" type="email" placeholder="you@example.com">
+            </div>
+            <div class="mb-3">
+              <label class="form-label" for="login-password">Password</label>
+              <input class="form-control" id="login-password" type="password" placeholder="••••••••">
+            </div>
+            <button class="btn btn-light w-100" type="submit">Log in</button>
+          </form>
         </div>
-      </form>
+      </div>
     </div>
   </div>
 </section>
