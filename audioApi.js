@@ -56,7 +56,6 @@ window.showTopAlbums = function(response) {
   // Skapar albumkort
   albums.forEach(album => {
     const card = document.createElement("div");
-    card.classList.add("artist-card"); // återanvänder samma CSS
 
     // Album namn
     const name = document.createElement("h3");
