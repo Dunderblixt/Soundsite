@@ -1,32 +1,43 @@
-//test
-const myTopURL = 'https://api.spotify.com/v1/me/top/artists';
-const searchURL = 'https://api.spotify.com/v1/search?';
+//  Callback måste vara global för JSONP
+window.showArtists = function(response) {
+  const artists = response.data;
+  console.log("Top 20 Artists:", artists);
 
-const query = this.querySelector('input[type="text"]').value
-// Authorization token that must have been created previously. See : https://developer.spotify.com/documentation/web-api/concepts/authorization
-let token = accessToken;
-async function fetchWebApi(endpoint, method, body) {
-  const res = await fetch(`${myTopURL}`, {
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-    method,
-    body:JSON.stringify(body)
+  const list = document.getElementById("artistList");
+  if (!list) return;
+  list.innerHTML = ""; // rensa gamla kort
+
+  artists.forEach(artist => {
+    // Kort
+    const card = document.createElement("div");
+
+    // Namn
+    const name = document.createElement("h3");
+    name.textContent = artist.name;
+    card.appendChild(name);
+
+    // Bild (medium)
+    if (artist.picture_medium) {
+      const img = document.createElement("img");
+      img.src = artist.picture_medium;
+      img.alt = artist.name;
+      card.appendChild(img);
+    }
+
+
+    list.appendChild(card);
   });
-  return await res.json();
-}
+};
 
-async function getTopTracks(){
-  // Endpoint reference : https://developer.spotify.com/documentation/web-api/reference/get-users-top-artists-and-tracks
-  return (await fetchWebApi(
-    'v1/me/top/tracks?time_range=long_term&limit=20', 'GET'
-  )).items;
-}
+// Knappen som hämtar Top Artists
+const topArtistsBtn = document.getElementById("topArtistsBtn");
+topArtistsBtn.addEventListener("click", function(e) {
+  e.preventDefault(); // hindra  från att scrolla upp efter klick
 
-const topTracks = await getTopTracks();
-console.log(
-  topTracks?.map(
-    ({name, artists}) =>
-      `${name} by ${artists.map(artist => artist.name).join(', ')}`
-  )
-);
+  console.log("Top Artists knapp klickad");
+
+  //  Skapa <script> som hämtar JSONP från Deezer
+  const script = document.createElement("script");
+  script.src = "https://api.deezer.com/chart/0/artists?limit=20&output=jsonp&callback=showArtists";
+  document.body.appendChild(script);
+});
