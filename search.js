@@ -101,3 +101,9 @@ navSearchForm.addEventListener("submit", function(e) {
   e.preventDefault();
   performSearch(document.getElementById("navSearchInput").value.trim());
 });
+
+// Auto-search if redirected here with ?q= from another page
+const urlQuery = new URLSearchParams(window.location.search).get("q");
+if (urlQuery) {
+  performSearch(urlQuery);
+}
