@@ -1,4 +1,3 @@
-//  Callback måste vara global för JSONP
 window.showArtists = function(response) {
   const artists = response.data;
   console.log("Top 20 Artists:", artists);
@@ -8,38 +7,48 @@ window.showArtists = function(response) {
   list.innerHTML = ""; // rensa gamla kort
 
   artists.forEach(artist => {
-    // Kort
+    // Bootstrap col div
+    const col = document.createElement("div");
+    col.className = "col"; // grid column
+
+    // Card
     const card = document.createElement("div");
+    card.className = "card text-bg-dark h-100";
 
-    // Namn
-    const name = document.createElement("h3");
-    name.textContent = artist.name;
-    card.appendChild(name);
-
-    // Bild (medium)
+    // Artistbild
     if (artist.picture_medium) {
       const img = document.createElement("img");
       img.src = artist.picture_medium;
       img.alt = artist.name;
+      img.className = "card-img-top album-cover"; // samma klass som album
       card.appendChild(img);
     }
 
-    list.appendChild(card);
+    // Card body
+    const body = document.createElement("div");
+    body.className = "card-body";
+
+    // Artist namn
+    const name = document.createElement("p");
+    name.className = "card-text mb-0 fw-semibold"; // samma som album namn
+    name.textContent = artist.name;
+    body.appendChild(name);
+
+    card.appendChild(body);
+    col.appendChild(card);
+    list.appendChild(col);
   });
 };
+document.addEventListener("DOMContentLoaded", function() {
+  const loadArtistsBtn = document.getElementById("loadArtists");
+  if (!loadArtistsBtn) return; // <--- stoppar om knappen inte finns på denna sida
 
-
-// Knappen som hämtar Top 20 Artists
-const topArtistsBtn = document.getElementById("topArtistsBtn");
-topArtistsBtn.addEventListener("click", function(e) {
-  // e.preventDefault(); // hindra  från att scrolla upp efter klick
-
-  //  Skapa script som hämtar JSONP från Deezer Api
-  const script = document.createElement("script");
-  script.src = "https://api.deezer.com/chart/0/artists?limit=20&output=jsonp&callback=showArtists";
-  document.body.appendChild(script);
+  loadArtistsBtn.addEventListener("click", function() {
+    const script = document.createElement("script");
+    script.src = "https://api.deezer.com/chart/0/artists?limit=20&output=jsonp&callback=showArtists";
+    document.body.appendChild(script);
+  });
 });
-
 
 
 // Callback global för JSONP
@@ -89,7 +98,6 @@ window.showTopAlbums = function(response) {
     // byter textinnehåll till API datan
     artistName.textContent = album.artist && album.artist.name ? album.artist.name : "";
     body.appendChild(artistName);
-    // * appendar till parents
     card.appendChild(body);
     col.appendChild(card);
     list.appendChild(col);
@@ -97,13 +105,14 @@ window.showTopAlbums = function(response) {
 };
 
 // Eventlistener för knappen top50Btn
-const top50Btn = document.getElementById("loadAlbums");
-top50Btn.addEventListener("click", function(e) {
-  // e.preventDefault();
-  console.log("Top 20 Albums knapp klickad");
+document.addEventListener("DOMContentLoaded", function() {
+  const loadAlbumsBtn = document.getElementById("loadAlbums");
+  if (!loadAlbumsBtn) return; // stoppa om knappen inte finns
 
-  
-  const script = document.createElement("script");
-  script.src = "https://api.deezer.com/chart/0/albums?limit=20&output=jsonp&callback=showTopAlbums";
-  document.body.appendChild(script);
+  loadAlbumsBtn.addEventListener("click", function() {
+    console.log("Top 20 Albums knapp klickad");
+    const script = document.createElement("script");
+    script.src = "https://api.deezer.com/chart/0/albums?limit=20&output=jsonp&callback=showTopAlbums";
+    document.body.appendChild(script);
+  });
 });
