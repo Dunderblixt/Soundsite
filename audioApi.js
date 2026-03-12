@@ -97,7 +97,7 @@ window.showTopAlbums = function(response) {
 };
 
 // Eventlistener för knappen top50Btn
-const top50Btn = document.getElementById("top50Btn");
+const top50Btn = document.getElementById("loadAlbums");
 top50Btn.addEventListener("click", function(e) {
   // e.preventDefault();
   console.log("Top 20 Albums knapp klickad");
