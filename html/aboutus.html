@@ -34,14 +34,61 @@
             <li class="nav-item">
           <a class="nav-link" id="aboutUsBtn" aria-current="page" href="./aboutus.html">About us</a></li>
       </ul>
-
-
-     <!-- Innehållet ? -->
-
-
-
-
-
+      <form id="navSearchForm" class="d-flex" role="search">
+        <input id="navSearchInput" class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
+        <button class="btn btn-dark" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
+    
+    <!-- Hero Section -->
+<section id="heroSection" class="hero-section d-flex align-items-center">
+  <div class="container text-center text-white">
+    
+    <h1 class="fw-bold display-4">
+      About us at 
+      <span class="moirai-one-logo">Soundsite</span>
+    </h1>
+ <div class="mx-auto my-5 w-75">
+  <!-- About AMEH-ruta i herosection-->
+  <div class="card bg-light text-dark shadow-lg p-4 w-75 mx-auto rounded-4">
+    <h2 class="card-title mb-3">About AMEH</h2>
+    <p class="card-text">
+      We are a group of four developers: Adam, Mohammed, Elin, and Henrik. Together we form the team AMEH.
+    </p>
+    <p class="card-text">
+      This project was created as part of our web development studies where we explore APIs, JavaScript, and modern web design.
+    </p>
+    <p class="card-text">
+      We chose to work with a music API because music connects people worldwide. Using the Deezer API allows us to showcase popular artists, albums, and charts dynamically.
+    </p>
+    <p class="card-text">
+      Our goal is to learn how APIs work, how to fetch data from external services, and dynamically render it on a webpage using JavaScript and Bootstrap.
+    </p>
+  </div>
+  <!-- Kontakt text -->
+  <p class="fs-4 mt-5 text-center">
+    Write to us if you have any questions.
+  </p>
+  <!-- Kontakt formulär -->
+  <form class="w-75 mx-auto mt-3">
+    <div class="mb-3">
+      <input type="text" class="form-control form-control-lg" placeholder="Your name" required>
+    </div>
+    <div class="mb-3">
+      <input type="email" class="form-control form-control-lg" placeholder="Your email" required>
+    </div>
+    <div class="mb-3">
+      <textarea class="form-control form-control-lg" rows="5" placeholder="Your message" required></textarea>
+    </div>
+    <div class="text-center">
+      <button type="submit" class="btn btn-dark btn-lg px-5">Send</button>
+    </div>
+  </form>
+</div>
+</div>
+</section>
       <!-- footer -->
 <div class="container">
   <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
@@ -60,6 +107,6 @@
 </div>
     <!-- bootstrap script  -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-    <script src="./search.js"></script>
+    <script src=""></script>
 </body>
 </html>
