@@ -40,25 +40,28 @@
   </div>
 </nav>
 <!-- Hero Section -->
-<section class="hero-section d-flex align-items-start align-items-lg-center">
+<section id="heroSection" class="hero-section d-flex align-items-start align-items-lg-center">
   <div class="container text-white">
     <div class="hero-content">
       <h1 class="fw-bold display-4">Welcome to <span class="moirai-one-logo">Soundsite</span></h1>
       <p class="fs-3">Millions of songs, albums and artists to discover. Explore now.</p>
 
-      <form class="search-bar mt-4">
+      <form id="searchForm" class="search-bar mt-4">
         <div class="input-group input-group-lg">
           <input
+            id="searchInput"
             type="text"
             class="form-control"
             placeholder="Search for an artist, album, song..."
           >
-          <button class="btn px-4" type="submit">Search</button>
+          <button id="searchBtn" class="btn px-4" type="submit">Search</button>
         </div>
       </form>
     </div>
   </div>
 </section>
+
+<div id="searchResults" class="container my-4" style="display:none;"></div>
 
 <div id="artistList" class="container"></div> <!--Mohammed har lagt lista för artister-->
 <!-- footer -->
@@ -79,5 +82,6 @@
 </div>
     <!-- bootstrap script  -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script src="./search.js"></script>
 </body>
 </html>
