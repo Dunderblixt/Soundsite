@@ -21,3 +21,6 @@ First fetch and renders tested succesfully.
 planned features:
 top artists, albums
 song search
+
+12-03-26
+song search, top 50, top artists
