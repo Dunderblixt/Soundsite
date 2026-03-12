@@ -32,7 +32,7 @@ window.showArtists = function(response) {
 // Knappen som hämtar Top 20 Artists
 const topArtistsBtn = document.getElementById("topArtistsBtn");
 topArtistsBtn.addEventListener("click", function(e) {
-  e.preventDefault(); // hindra  från att scrolla upp efter klick
+  // e.preventDefault(); // hindra  från att scrolla upp efter klick
 
   //  Skapa script som hämtar JSONP från Deezer Api
   const script = document.createElement("script");
@@ -99,7 +99,7 @@ window.showTopAlbums = function(response) {
 // Eventlistener för knappen top50Btn
 const top50Btn = document.getElementById("top50Btn");
 top50Btn.addEventListener("click", function(e) {
-  e.preventDefault();
+  // e.preventDefault();
   console.log("Top 20 Albums knapp klickad");
 
   
