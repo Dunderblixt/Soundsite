@@ -8,6 +8,9 @@ window.showSearchResults = function(response) {
   searchResults.style.display = "block";
   searchResults.innerHTML = ""; // rensa gamla resultat
 
+  const inner = document.createElement("div");
+  inner.className = "container search-results-inner";
+
   // Skapa grid-rad precis som albumkorten i audioApi.js
   const row = document.createElement("div");
   row.className = "row row-cols-1 row-cols-md-2 g-4";
@@ -71,7 +74,8 @@ window.showSearchResults = function(response) {
     row.appendChild(col);
   });
 
-  searchResults.appendChild(row);
+  inner.appendChild(row);
+  searchResults.appendChild(inner);
 };
 
 // Shared search logic

@@ -72,6 +72,38 @@
 }
 
 
+#searchResults {
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+  padding: 3rem 0;
+}
+
+#searchResults::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url(./img/mick-haupt-ehMNP0Ooj3M-unsplash.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: blur(6px);
+  transform: scale(1.03);
+}
+
+#searchResults::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+#searchResults .search-results-inner {
+  position: relative;
+  z-index: 1;
+  color: white;
+}
+
 .search-bar .btn {
   background-color: #000;
   border-radius: 0 50px 50px 0;
