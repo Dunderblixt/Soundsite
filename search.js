@@ -3,10 +3,6 @@ window.showSearchResults = function(response) {
   const results = response.data;
   console.log("Search Results:", results);
 
-  // Göm hero-sektionen, visa resultatcontainern
-  const heroSection = document.getElementById("heroSection");
-  if (heroSection) heroSection.style.display = "none";
-
   const searchResults = document.getElementById("searchResults");
   if (!searchResults) return;
   searchResults.style.display = "block";
@@ -78,16 +74,30 @@ window.showSearchResults = function(response) {
   searchResults.appendChild(row);
 };
 
-// Event listener för sökformuläret
-const searchForm = document.getElementById("searchForm");
-searchForm.addEventListener("submit", function(e) {
-  e.preventDefault(); // hindra form submission / sidladdning
-
-  const query = document.getElementById("searchInput").value.trim();
+// Shared search logic
+function performSearch(query) {
   if (!query) return;
+
+  const heroSection = document.getElementById("heroSection");
+  heroSection.classList.remove("d-flex");
+  heroSection.classList.add("d-none");
 
   // Skapa script-tagg för JSONP-anrop till Deezer API
   const script = document.createElement("script");
   script.src = `https://api.deezer.com/search?q=${encodeURIComponent(query)}&limit=20&output=jsonp&callback=showSearchResults`;
   document.body.appendChild(script);
+}
+
+// Event listener för hero-sökformuläret
+const searchForm = document.getElementById("searchForm");
+searchForm.addEventListener("submit", function(e) {
+  e.preventDefault();
+  performSearch(document.getElementById("searchInput").value.trim());
+});
+
+// Event listener för navbar-sökformuläret
+const navSearchForm = document.getElementById("navSearchForm");
+navSearchForm.addEventListener("submit", function(e) {
+  e.preventDefault();
+  performSearch(document.getElementById("navSearchInput").value.trim());
 });
