@@ -4,7 +4,6 @@ window.showTopAlbums = function(response) {
   const albums = response.data;
   console.log("Top 20 Albums:", albums);
 
-  // Hitta id från HTML
   const list = document.getElementById("albumList");
   if (!list) return;
   list.innerHTML = ""; 
@@ -44,9 +43,11 @@ window.showTopAlbums = function(response) {
   window.animateCards?.(list);
 };
 
+// Kör koden när hela HTML-sidan har laddats
 document.addEventListener("DOMContentLoaded", function() {
   if (!document.getElementById("albumList")) return;
 
+  // Använder JSONP för att hämta data och skicka den till showTopAlbums
   const script = document.createElement("script");
   script.src = "https://api.deezer.com/chart/0/albums?limit=20&output=jsonp&callback=showTopAlbums";
   document.body.appendChild(script);
