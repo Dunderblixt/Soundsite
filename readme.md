@@ -1,6 +1,3 @@
-09-03-26 
-Project Soundsite started
-
 About AMEH
 We are a group of four developers: Adam, Mohammed, Elin, and Henrik. Together we form the team AMEH.
 This project was created as part of our web development studies where we explore APIs, JavaScript, and modern web design.
@@ -15,6 +12,9 @@ Mohammed A: Main JS
 Adam T: Main CSS
 Elin K: Main HTML and architecture
 
+
+09-03-26 
+Project Soundsite started
 Spotify chosen as API.
 
 10-03-26 
