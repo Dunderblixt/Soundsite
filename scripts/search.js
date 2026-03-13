@@ -1,14 +1,46 @@
-window.showSearchResults = function(response) {
-  const results = response.data;
-  console.log("Search Results:", results);
+function showSearchMessage(message, subMessage, queryText = "") {
+  let searchResults = document.getElementById("searchResults");
+  if (!searchResults) {
+    searchResults = document.createElement("div");
+    searchResults.id = "searchResults";
+    document.body.insertBefore(searchResults, document.body.firstChild);
+  }
 
-  const searchResults = document.getElementById("searchResults");
-  if (!searchResults) return;
   searchResults.style.display = "block";
   searchResults.innerHTML = "";
 
   const inner = document.createElement("div");
+  inner.className = "container search-results-inner text-center my-5";
+  const heading = queryText ? `Search Results for "${queryText}"` : "Search Results";
+  inner.innerHTML = `<h1 class="h1 hero-title">${heading}</h1><p class="fs-4 mb-1">${message}</p><p class="text-white">${subMessage}</p>`;
+  searchResults.appendChild(inner);
+}
+
+window.showSearchResults = function(response) {
+  const results = response?.data || [];
+  console.log("Search Results:", results);
+
+  const searchResults = document.getElementById("searchResults");
+  if (!searchResults) {
+    showSearchMessage("No results found", "Try a different search.", window.lastSearchQuery || "");
+    return;
+  }
+  searchResults.style.display = "block";
+  searchResults.innerHTML = "";
+
+  if (!results.length) {
+    showSearchMessage("No results found", "Try a different search.", window.lastSearchQuery || "");
+    return;
+  }
+
+  const heading = document.createElement("h1");
+  heading.className = "h1 hero-title text-center text-white";
+  const queryText = window.lastSearchQuery ? `Search Results for "${window.lastSearchQuery}"` : "Search Results";
+  heading.textContent = queryText;
+
+  const inner = document.createElement("div");
   inner.className = "container search-results-inner";
+  inner.appendChild(heading);
 
   const row = document.createElement("div");
   row.className = "row row-cols-1 row-cols-md-2 g-4";
@@ -73,10 +105,13 @@ window.showSearchResults = function(response) {
 // Shared search logic
 function performSearch(query) {
   if (!query) return;
+  window.lastSearchQuery = query;
 
   const heroSection = document.getElementById("heroSection");
-  heroSection.classList.remove("d-flex");
-  heroSection.classList.add("d-none");
+  if (heroSection) {
+    heroSection.classList.remove("d-flex");
+    heroSection.classList.add("d-none");
+  }
   const script = document.createElement("script");
   script.src = `https://api.deezer.com/search?q=${encodeURIComponent(query)}&limit=20&output=jsonp&callback=showSearchResults`;
   document.body.appendChild(script);
