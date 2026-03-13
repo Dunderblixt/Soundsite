@@ -17,9 +17,12 @@ Elin K: Main HTML and architecture
 
 Spotify chosen as API.
 
+10-03-26
 Mockup:
 ![Mockup 1](<./img/Figma 1.png>)
 ![Mockup 2](<./img/Figma 2.png>)
+
+Collaborative web meeting to connect the different parts of the project. Great success.
 
 11-03-26
 2nd meeting.
