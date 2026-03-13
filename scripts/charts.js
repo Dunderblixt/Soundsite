@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", function() {
   if (!document.getElementById("chartList")) return;
 
   const script = document.createElement("script");
-  // Använder JSONP för att hämta data och skicka den till showTopCharts
+  // script.src Använder JSONP för att hämta data och skicka den till showTopCharts
   script.src = "https://api.deezer.com/chart/0/tracks?limit=20&output=jsonp&callback=showTopCharts"; 
   document.body.appendChild(script);
 });

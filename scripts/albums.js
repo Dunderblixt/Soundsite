@@ -47,7 +47,7 @@ window.showTopAlbums = function(response) {
 document.addEventListener("DOMContentLoaded", function() {
   if (!document.getElementById("albumList")) return;
 
-  // Använder JSONP för att hämta data och skicka den till showTopAlbums
+  // script.src Använder JSONP för att hämta data och skicka den till showTopAlbums
   const script = document.createElement("script");
   script.src = "https://api.deezer.com/chart/0/albums?limit=20&output=jsonp&callback=showTopAlbums";
   document.body.appendChild(script);

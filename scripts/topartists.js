@@ -41,7 +41,7 @@ window.showArtists = function(response) {
 document.addEventListener("DOMContentLoaded", function() {
   if (!document.getElementById("artistList")) return;
 
-  // Använder JSONP för att hämta data och skicka den till showArtist
+  // script.src Använder JSONP för att hämta data och skicka den till showArtist
   const script = document.createElement("script");
   script.src = "https://api.deezer.com/chart/0/artists?limit=20&output=jsonp&callback=showArtists";
   document.body.appendChild(script);
