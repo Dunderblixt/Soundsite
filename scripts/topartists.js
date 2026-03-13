@@ -4,33 +4,28 @@ window.showArtists = function(response) {
 
   const list = document.getElementById("artistList");
   if (!list) return;
-  list.innerHTML = ""; // rensa gamla kort
+  list.innerHTML = "";
 
   artists.forEach(artist => {
-    // Bootstrap col div
     const col = document.createElement("div");
-    col.className = "col"; // grid column
+    col.className = "col";
 
-    // Card
     const card = document.createElement("div");
     card.className = "card text-bg-dark h-100";
 
-    // Artistbild
     if (artist.picture_medium) {
       const img = document.createElement("img");
       img.src = artist.picture_medium;
       img.alt = artist.name;
-      img.className = "card-img-top album-cover"; // samma klass som album
+      img.className = "card-img-top album-cover"; 
       card.appendChild(img);
     }
 
-    // Card body
     const body = document.createElement("div");
     body.className = "card-body";
 
-    // Artist namn
     const name = document.createElement("p");
-    name.className = "card-text mb-0 fw-semibold"; // samma som album namn
+    name.className = "card-text mb-0 fw-semibold";
     name.textContent = artist.name;
     body.appendChild(name);
 
@@ -38,6 +33,8 @@ window.showArtists = function(response) {
     col.appendChild(card);
     list.appendChild(col);
   });
+
+  window.animateCards?.(list);
 };
 
 document.addEventListener("DOMContentLoaded", function() {

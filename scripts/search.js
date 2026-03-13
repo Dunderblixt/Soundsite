@@ -5,29 +5,24 @@ window.showSearchResults = function(response) {
   const searchResults = document.getElementById("searchResults");
   if (!searchResults) return;
   searchResults.style.display = "block";
-  searchResults.innerHTML = ""; // rensa gamla resultat
+  searchResults.innerHTML = "";
 
   const inner = document.createElement("div");
   inner.className = "container search-results-inner";
 
-  // Skapa grid-rad
   const row = document.createElement("div");
   row.className = "row row-cols-1 row-cols-md-2 g-4";
 
   results.forEach(result => {
-    // Kolumn-wrapper
     const col = document.createElement("div");
     col.className = "col";
 
-    // Kort
     const card = document.createElement("div");
     card.className = "card text-bg-dark h-100";
 
-    // Rad inuti kortet (bild till vänster, text till höger)
     const inner = document.createElement("div");
     inner.className = "row g-0";
 
-    // Albumomslagsbild
     const imgCol = document.createElement("div");
     imgCol.className = "col-md-4";
     if (result.album && result.album.cover_medium) {
@@ -38,26 +33,22 @@ window.showSearchResults = function(response) {
       imgCol.appendChild(img);
     }
 
-    // Textinnehåll
     const textCol = document.createElement("div");
     textCol.className = "col-md-8";
 
     const body = document.createElement("div");
     body.className = "card-body";
 
-    // Låttitel
     const title = document.createElement("h5");
     title.className = "card-title";
     title.textContent = result.title || result.name;
     body.appendChild(title);
 
-    // Artistnamn
     const artist = document.createElement("p");
     artist.className = "card-text card-text-color mb-1";
     artist.textContent = result.artist && result.artist.name ? result.artist.name : "";
     body.appendChild(artist);
 
-    // Albumtitel
     const album = document.createElement("p");
     album.className = "card-text card-text-color";
     const small = document.createElement("small");
@@ -75,6 +66,8 @@ window.showSearchResults = function(response) {
 
   inner.appendChild(row);
   searchResults.appendChild(inner);
+
+  window.animateCards?.(row);
 };
 
 // Shared search logic
