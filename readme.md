@@ -14,7 +14,7 @@ Elin K: Main HTML and architecture
 
 
 09-03-26 
-Project Soundsite started
+Project Soundsite started.
 Spotify chosen as API.
 
 10-03-26 
