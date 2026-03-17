@@ -1,4 +1,4 @@
-// Callback global för JSONP – Deezer kommer att kalla denna funktion när data laddats
+// Global callback-funktion för JSONP som körs när API:t skickar tillbaka top charts-data. 
 window.showTopCharts = function(response) {
   const charts = response.data;
 

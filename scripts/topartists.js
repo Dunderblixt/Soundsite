@@ -1,3 +1,5 @@
+// Global callback-funktion för JSONP som körs när API:t skickar tillbaka top artist-data. 
+
 window.showArtists = function(response) {
   const artists = response.data;
   console.log("Top 20 Artists:", artists);
