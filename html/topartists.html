@@ -4,9 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Soundsite | Top Artists</title>
+    <script>(function(){var t=localStorage.getItem('soundsite-theme')||'light';document.documentElement.setAttribute('data-bs-theme',t);})();</script>
     <!-- scripts -->
     <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" defer></script>
     <script src="../scripts/animations.js" defer></script>
+    <script src="../scripts/darkmode.js" defer></script>
     <script src="../scripts/topartists.js" type="module" defer></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <!-- font styles -->
@@ -19,7 +21,7 @@
 </head>
 <body>
     <!-- navbar -->
-<nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top" data-bs-theme="white">
+<nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top">
   <div class="container">
     <a class="navbar-brand moirai-one-regular" href="../index.html">Soundsite</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -40,6 +42,9 @@
         <input class="form-control me-2" type="search" name="q" placeholder="Search" aria-label="Search"/>
         <button class="btn btn-dark" type="submit">Search</button>
       </form>
+      <button id="darkModeToggle" class="btn btn-link border-0 text-body ms-2 p-1" type="button" aria-label="Switch to dark mode">
+        <i class="bi bi-moon-fill fs-5"></i>
+      </button>
     </div>
   </div>
 </nav>
