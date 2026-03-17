@@ -53,4 +53,8 @@ About Us section added.
 comment cleanup and indentation.
 Readme fixup.
 
-Soundsite 1.0 ready.
+Soundsite 1.0 ready.  
+
+17-03-26  
+Added darkmode/lightmode
+
