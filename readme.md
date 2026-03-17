@@ -23,7 +23,7 @@ Elin K: Main HTML and architecture
 09-03-26 
 Project Soundsite started.
 Spotify 
-![skiss](skiss.jpg)chosen as API.
+![skiss](skiss.jpg)chosen as API.  
 10-03-26 
 Collaborative web meeting to connect the different parts of the project. Great success.
 Mockup:
